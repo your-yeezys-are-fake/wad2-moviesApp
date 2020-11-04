@@ -6,6 +6,7 @@ import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoriteMoviesPage'
 import MovieReviewPage from "./pages/movieReviewPage";
+import UpcomingMoviePage from "./pages/upcomingMoviesPage"
 import SiteHeader from './components/siteHeader'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
     <SiteHeader /> 
           <div className="container-fluid">
         <Switch>
+        <Route path="/movies/upcoming" component={UpcomingMoviePage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
