@@ -3,7 +3,7 @@ import Header from "../headerMovieList";
 import UpcomingMovies from "../upcomingMoviesPage";
 import FilterControls from "../filterControls";
 
-const UpcomingMovieListPageTemplate = ({movies, title, buttonHandler}) => {
+const UpcomingMovieListPageTemplate = ({ movies, title, action }) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
@@ -27,7 +27,7 @@ const UpcomingMovieListPageTemplate = ({movies, title, buttonHandler}) => {
       <Header title={title} numMovies={displayedMovies.length} />
       <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
       <UpcomingMovies
-        buttonHandler={buttonHandler}
+        action={action}
         movies={displayedMovies}
       ></UpcomingMovies>
     </>
