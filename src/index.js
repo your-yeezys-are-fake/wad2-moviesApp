@@ -12,6 +12,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TrendingMoviesPage from "../src/pages/trendingMoviesPage";
+import NowPlayingMoviesPage from './pages/nowPlayingMoviesPage';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <GenresContextProvider>
         <Switch>
         <Route path="/movies/upcoming" component={UpcomingMoviePage} />
+        <Route path="/movies/now_playing" component={NowPlayingMoviesPage} />
         <Route exact path="/trending/movies/week" component={TrendingMoviesPage}/>
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />  
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />

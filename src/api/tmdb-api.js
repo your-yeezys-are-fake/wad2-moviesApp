@@ -11,6 +11,18 @@ export const getMovies = () => {
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
     ).then(res => res.json());
   };
+
+  export const getPeople = () => {
+   return fetch(
+    `https://api.themoviedb.org/3/discover/person?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+   )
+  }
+
+  export const getPerson = id => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+  }
   
   export const getGenres = () => {
     return fetch(
@@ -43,3 +55,23 @@ export const getMovies = () => {
       .then(res => res.json())
       .then(json => json.results);
   }; 
+
+   export const getTVShows = () => {
+     return fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`
+     )
+   };
+
+   export const getTVShow = id => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    ).then(res => res.json());
+   }
+
+   export const getNowPlayingMovies = () =>{
+    return fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+   }
