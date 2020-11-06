@@ -1,15 +1,14 @@
 import React, {useContext} from "react";
-import UpcomingMovieListPageTemplate from '../components/templateUpcomingMoviesPage'
+import TemplateTrendingMovie from '../components/templateTrendingMovie'
 import {MoviesContext} from '../contexts/moviesContext'
 import AddToFavoritesButton from '../components/buttons/addToFavorites'
-//import AddToWatchlistButton from "../components/buttons/addToWatchlist"
 
-const UpcomingMoviePage = () => {
+const TrendingMoviesPage = () => {
   const context = useContext(MoviesContext);
 
   return (
-      <UpcomingMovieListPageTemplate 
-        title='Upcoming Movies'
+      <TemplateTrendingMovie 
+        title='Trending Movies'
         movies={context.movies}
         action={(movie) => {
           return <AddToFavoritesButton movie={movie} /> 
@@ -18,8 +17,4 @@ const UpcomingMoviePage = () => {
   );
 };
 
-
-
-export default UpcomingMoviePage;
-
-
+export default TrendingMoviesPage;

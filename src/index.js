@@ -10,7 +10,9 @@ import UpcomingMoviePage from "./pages/upcomingMoviesPage"
 import SiteHeader from './components/siteHeader'
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
+import AddMovieReviewPage from './pages/addMovieReviewPage';
+import TrendingMoviesPage from "../src/pages/trendingMoviesPage";
+
 
 const App = () => {
   return (
@@ -22,6 +24,7 @@ const App = () => {
           <GenresContextProvider>
         <Switch>
         <Route path="/movies/upcoming" component={UpcomingMoviePage} />
+        <Route exact path="/trending/movies/week" component={TrendingMoviesPage}/>
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />  
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />

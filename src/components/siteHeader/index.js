@@ -43,6 +43,11 @@ const SiteHeader = () => {
             Upcoming
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="trending/movies/week">
+              Trending
+            </Link>
+          </li>
         </ul>
       </nav>
     </nav>
