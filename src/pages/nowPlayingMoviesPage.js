@@ -8,8 +8,8 @@ const NowPlayingMoviesPage = () => {
 
   return (
       <NowPlayingMoviesTemplate 
-        title='Upcoming Movies'
-        movies={context.movies}
+        title='Now Playing'
+        movies={context.now_playing}
         action={(movie) => {
           return <AddToFavoriteButton movie={movie} /> 
         }}

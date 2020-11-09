@@ -9,7 +9,7 @@ const UpcomingMoviePage = () => {
   return (
       <UpcomingMovieListPageTemplate 
         title='Upcoming Movies'
-        movies={context.movies}
+        movies={context.upcoming}
         action={(movie) => {
           return <AddToWatchlistButton movie={movie} /> 
         }}

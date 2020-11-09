@@ -9,7 +9,7 @@ const TrendingMoviesPage = () => {
   return (
       <TemplateTrendingMovie 
         title='Trending Movies'
-        movies={context.movies}
+        movies={context.now_playing}
         action={(movie) => {
           return <AddToFavoritesButton movie={movie} /> 
         }}

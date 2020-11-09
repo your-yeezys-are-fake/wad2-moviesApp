@@ -40,9 +40,9 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
-  export const getUpcomingMovies = id => {
+  export const getUpcomingMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&region=US`
     )
       .then(res => res.json())
       .then(json => json.results);
@@ -58,7 +58,7 @@ export const getMovies = () => {
 
    export const getTVShows = () => {
      return fetch(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`
+      `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`
      )
    };
 
@@ -68,10 +68,10 @@ export const getMovies = () => {
     ).then(res => res.json());
    }
 
-   export const getNowPlayingMovies = () =>{
+   export const getNowPlayingMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     )
       .then(res => res.json())
       .then(json => json.results);
-   }
+  };
