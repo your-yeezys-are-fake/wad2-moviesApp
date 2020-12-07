@@ -10,24 +10,32 @@ const reducer = (state, action) => {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
-        now_playing: [...state.now_playing],
+        now_playing: state.now_playing.map((n) => 
+        n.id === action.payload.movie.id ? {...n, favourite: true} : n
+        ),
+        trending: state.trending.map((t) => 
+        t.id === action.payload.movie.id ? {...t, favourite:true} : t
+        ),
         upcoming: [...state.upcoming]
       };
     case "add-watchlist":
       return{
-        movies: state.movies.map((m) =>
-          m.id === action.payload.movie.id ? { ...m, favorite: false } : m
+        upcoming: state.upcoming.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
         ),
-        upcoming: [...state.upcoming],   
-        now_playing: [...state.now_playing] 
+        movies:[state.movies],
+        now_playing:[state.now_playing],
+        trending: [state.trending]
             
       };
-      case "load-upcoming":
-        return { upcoming: action.payload.movies, movies: [...state.movies] };
-    case "load":
+      case "load":
       return { movies: action.payload.movies, now_playing:[...state.now_playing], upcoming: [...state.upcoming]};
+      case "load-upcoming":
+        return { upcoming: action.payload.movies, movies: [...state.movies], now_playing:[...state.now_playing] };
       case "load-now-playing":
-          return { now_playing: action.payload.movies, movies: [...state.movies] };
+          return { now_playing: action.payload.movies, upcoming:[...state.upcoming],  movies: [...state.movies] };
+      case "load-trending":
+          return {trending: action.payload.movies, movies:[...state.movies], now_playing:[...state.now_playing], upcoming:[...state.upcoming]}    
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -37,6 +45,7 @@ const reducer = (state, action) => {
         ),
         now_playing: [...state.now_playing],
         upcoming: [...state.upcoming],
+        trending: [...state.trending]
       };
     default:
       return state;

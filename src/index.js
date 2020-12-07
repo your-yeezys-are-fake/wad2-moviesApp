@@ -27,8 +27,9 @@ const App = () => {
           <TvsContextProvider>
           <GenresContextProvider>
         <Switch>
-        <Route path="/movies/upcoming" component={UpcomingMoviePage} />
         <Route path="/movies/now_playing" component={NowPlayingMoviesPage} />
+        <Route path="/movies/upcoming" component={UpcomingMoviePage} />
+
         <Route path="/tv/latest" component= {tvShowPage} />
         <Route exact path="/trending/movies/week" component={TrendingMoviesPage}/>
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />  
