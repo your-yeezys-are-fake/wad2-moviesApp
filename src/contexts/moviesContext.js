@@ -10,23 +10,24 @@ const reducer = (state, action) => {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
-        upcoming: [...state.upcoming],
         now_playing: [...state.now_playing],
+        upcoming: [...state.upcoming]
       };
     case "add-watchlist":
       return{
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: false } : m
         ),
-        now_playing: [...state.now_playing], 
-        upcoming: [...state.upcoming],       
+        upcoming: [...state.upcoming],   
+        now_playing: [...state.now_playing] 
+            
       };
       case "load-upcoming":
         return { upcoming: action.payload.movies, movies: [...state.movies] };
-        case "load-now-playing":
-          return { now_playing: action.payload.movies, movies: [...state.movies] };
     case "load":
       return { movies: action.payload.movies, now_playing:[...state.now_playing], upcoming: [...state.upcoming]};
+      case "load-now-playing":
+          return { now_playing: action.payload.movies, movies: [...state.movies] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>

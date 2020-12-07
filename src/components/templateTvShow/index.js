@@ -1,11 +1,11 @@
-import "./moviePage.css";
+import "./tvPage.css";
 import React from "react";
 import TvHeader from '../headerTV'
 
-const TemplateTVPage = ({ movie, children }) => {
+const TemplateTVPage = ({ tv, children }) => {
   return (
     <>
-      <TvHeader movie={movie} />
+      <TvHeader tv={tv} />
       <div className="row">
         <div className="col-3">
           <img
