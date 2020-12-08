@@ -10,14 +10,14 @@ const reducer = (state, action) => {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
+        popular: state.popular.map((p) =>
+        p.id === action.payload.movie.id ? {...p, favorite: true} : p
+        ),
         now_playing: state.now_playing.map((n) => 
         n.id === action.payload.movie.id ? {...n, favourite: true} : n
         ),
         trending: state.trending.map((t) => 
         t.id === action.payload.movie.id ? {...t, favourite:true} : t
-        ),
-        popular: state.popular.map((p) =>
-        p.id === action.payload.movie.id ? {...p, favorite: true} : p
         ),
         upcoming: [...state.upcoming]
       };
