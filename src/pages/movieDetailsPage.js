@@ -3,7 +3,8 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
-import MovieCredits from "../components/movieCredits";
+import MovieCast from "../components/movieCreditsCast";
+import MovieCrew from "../components/movieCreditsCrew";
 import useMovie from "../hooks/useMovie";
 
 
@@ -58,7 +59,7 @@ const MoviePage = props => {
           </div>
           <Route
             path={`/movies/:id/credits`}
-            render={props => <MovieCredits movie={movie} {...props} />}
+            render={props => <MovieCast movie={movie} {...props} />}
           />
         </>
       ) : (
