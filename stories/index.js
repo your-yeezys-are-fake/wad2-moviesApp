@@ -6,6 +6,7 @@ import FilterControls from "../src/components/filterControls";
 import MoviesHeader from "../src/components/headerMovieList";
 import MovieList from "../src/components/movieList";
 import MovieDetails from "../src/components/movieDetails";
+import MovieCast from "../src/components/movieCreditsCast";
 import MovieHeader from "../src/components/headerMovie";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
@@ -85,6 +86,39 @@ const sample = {
       name: "English"
     }
   ],
+  cast:[
+    {
+    id: 1315036,
+    name: "Daisy Ridley",
+    character: "Rey"
+    },
+    {
+    id: 1023139,
+    name: "Adam Driver",
+    character: "Kylo Ren" 
+    },
+    {
+    id: 2,
+    name: "Mark Hamill",
+    character: "Luke Skywalker"
+    },
+    {
+    id: 236695,
+    name: "John Boyega",
+    character: "Finn"
+    },
+    {
+    id: 4,
+    name: "Carrie Fisher",
+    character: "Princess Leia"  
+    },
+    {
+    id: 25072,
+    name: "Oscar Isaac",
+    character: "Poe Dameron"
+    }
+  ],
+
   status: "Released",
   tagline: "Darkness rises... and light to meet it",
   title: "Star Wars: The Last Jedi",
@@ -146,6 +180,12 @@ storiesOf("Home Page/MovieList", module)
 storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
   <MovieDetails movie={sample} />
 ));
+
+storiesOf ("Movie Details Page/MovieCast", module)
+.addDecorator(story => (
+<MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <MovieCast movie={sample} />);
 
 storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
