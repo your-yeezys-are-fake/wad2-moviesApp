@@ -42,7 +42,7 @@ Name: Georgia Swindley
 ![][popular]
 >Shows a list of currently popular movies. In the API documentation, this has a similar function to latest (but is considered a separate entity by TMDB, just with usually similar views/results)
 
-![][cast]
+![][moviecast]
 >Intended to show a movie's cast by actor name and character (throws inconsistent errors when clicked)
 
 ## Routing.
@@ -64,5 +64,5 @@ Name: Georgia Swindley
 [trending]: ./public/trending.png
 [nowplaying]: ./public/nowplaying.png
 [popular]: ./public/popular.png
-[cast]: ./cast.png
+[moviecast]: ./public/moviecast.png
 [storycast]: ./public/storycast.png
