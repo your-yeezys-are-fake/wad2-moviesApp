@@ -4,7 +4,6 @@ import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import MovieCast from "../components/movieCreditsCast";
-import MovieCrew from "../components/movieCreditsCrew";
 import useMovie from "../hooks/useMovie";
 
 
