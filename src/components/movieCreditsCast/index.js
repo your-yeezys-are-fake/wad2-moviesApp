@@ -17,7 +17,7 @@ const [cast, setCast] = useState([]);
      {cast.map(ca => {
        return(
          <div>
-           {ca.name}
+           <b>{ca.name + " as "}</b>
            {ca.character}
           </div>
        )
