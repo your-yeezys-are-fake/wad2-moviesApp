@@ -20,7 +20,7 @@ Name: Georgia Swindley
 + https://api.themoviedb.org/3/movie/popular - get popular movies 
 + https://api.themoviedb.org/3/tv/latest - get latest TV shows (in code only)
 + https://api.themoviedb.org/3/tv/{id} - view TV show in detail by its ID (in code only)
-+ https://api.themoviedb.org/3/movie/{id}/credits - View cast/crew credits for a movie (throws inconsistent errors)
++ https://api.themoviedb.org/3/movie/{id}/credits - View cast credits for a movie 
 
 ## App Design.
 
@@ -42,8 +42,8 @@ Name: Georgia Swindley
 ![][popular]
 >Shows a list of currently popular movies. In the API documentation, this has a similar function to latest (but is considered a separate entity by TMDB, just with usually similar views/results)
 
-![][moviecast]
->Intended to show a movie's cast by actor name and character (throws inconsistent errors when clicked)
+![][moviescast]
+>Intended to show a movie's cast by actor name and character
 
 ## Routing.
 
@@ -52,7 +52,7 @@ Name: Georgia Swindley
 + /trending/movies/week - displays movies trending in the past week.
 + /tv/latest - displays latest TV shows (in code only)
 + /tv/{id} - displays a TV show by its ID in more detail (in code only)
-+ /movie/{id}/credits - intended to display a movie's cast by actor name and character
++ /movie/{id}/credits - displays a movie's cast by actor name and character
 
 ## Independent learning (If relevant).
 
@@ -64,5 +64,5 @@ Name: Georgia Swindley
 [trending]: ./public/trending.png
 [nowplaying]: ./public/nowplaying.png
 [popular]: ./public/popular.png
-[moviecast]: ./public/moviecast.png
+[moviescast]: ./public/moviescast.png
 [storycast]: ./public/storycast.png
