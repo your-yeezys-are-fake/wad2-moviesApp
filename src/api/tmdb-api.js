@@ -1,28 +1,18 @@
 export const getMovies = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
+  return fetch(
+     '/api/movies'//,{headers: {
+       //'Authorization': window.localStorage.getItem('token')
+    //}
+  //}
+  ).then(res => res.json());
+};
   
   export const getMovie = id => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `/api/movies/${id}`
     ).then(res => res.json());
   };
 
-  export const getPeople = () => {
-   return fetch(
-    `https://api.themoviedb.org/3/discover/person?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-   )
-  }
-
-  export const getPerson = id => {
-    return fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-  }
   
   export const getGenres = () => {
     return fetch(
@@ -35,15 +25,13 @@ export const getMovies = () => {
   };
 
   export const getMovieReviews = id => {
-    return fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`)
-      .then(res => res.json())
-      .then(json => json.results);
+    return fetch(`/api/movies/${id}/reviews`)
+      .then(res => res.json());
   };
 
   export const getUpcomingMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&region=US`
-    )
+      '/api/movies/upcoming')
       .then(res => res.json())
       .then(json => json.results);
   };
@@ -86,9 +74,30 @@ export const getMovies = () => {
 
   export const getMovieCredits = id => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      `/api/movies/${id}/credits`
     )
       .then(res => res.json())
+      .then(json => json.results);
   };
+
+  export const login = (username, password) => {
+    return fetch('/api/users', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({ username: username, password: password })
+    }).then(res => res.json())
+};
+
+export const signup = (username, password) => {
+    return fetch('/api/users?action=register', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({ username: username, password: password })
+    }).then(res => res.json())
+};
 
  

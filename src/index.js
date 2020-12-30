@@ -11,21 +11,25 @@ import UpcomingMoviePage from "./pages/upcomingMoviesPage";
 import SiteHeader from './components/siteHeader';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
-import TvsContextProvider from "./contexts/tvsContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TrendingMoviesPage from "../src/pages/trendingMoviesPage";
 import NowPlayingMoviesPage from './pages/nowPlayingMoviesPage';
 import PopularMoviesPage from './pages/popularMoviesPage';
-
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
+import PrivateRoute from "./components/privateRoute";
+import AuthHeader from "./components/authHeader";
+import AuthProvider from "./contexts/authContext";
 
 const App = () => {
   return (
     <BrowserRouter>
+     <AuthProvider>
+        <AuthHeader />
     <div className="jumbotron">
     <SiteHeader /> 
           <div className="container-fluid">
           <MoviesContextProvider>
-          <TvsContextProvider>
           <GenresContextProvider>
         <Switch>
         <Route path="/movies/now_playing" component={NowPlayingMoviesPage} />
@@ -36,15 +40,17 @@ const App = () => {
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />  
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
-          <Route path="/reviews/:id" component={MovieReviewPage} />
-          <Route path="/" component={HomePage} />
+          <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />,
+          <Route exact path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
         </GenresContextProvider>
-        </TvsContextProvider>
         </MoviesContextProvider>
       </div>
     </div>
+    </AuthProvider>
   </BrowserRouter>
   );
 };
