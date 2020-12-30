@@ -19,7 +19,7 @@ import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import PrivateRoute from "./components/privateRoute";
 import AuthHeader from "./components/authHeader";
-import AuthProvider from "./contexts/authContext";
+import AuthProvider from "../src/contexts/authContext";
 
 const App = () => {
   return (
