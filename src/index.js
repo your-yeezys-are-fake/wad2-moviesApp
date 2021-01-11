@@ -19,7 +19,7 @@ import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import PrivateRoute from "./components/privateRoute";
 import AuthHeader from "./components/authHeader";
-import AuthProvider from "../src/contexts/authContext";
+import AuthProvider from "./contexts/authContext";
 
 const App = () => {
   return (
@@ -32,10 +32,10 @@ const App = () => {
           <MoviesContextProvider>
           <GenresContextProvider>
         <Switch>
+        <Route path="/movies/upcoming" component={UpcomingMoviePage} />  
         <Route path="/movies/now_playing" component={NowPlayingMoviesPage} />
         <Route path="/trending/movies/week" component={TrendingMoviesPage}/>
         <Route path= "/movies/popular" component={PopularMoviesPage}/>
-        <Route path="/movies/upcoming" component={UpcomingMoviePage} />
         <Route path="/tv/latest" component= {tvShowPage} />
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />  
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />

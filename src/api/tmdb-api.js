@@ -16,7 +16,7 @@ export const getMovies = () => {
   
   export const getGenres = () => {
     return fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+      `/api/genres/` +
         process.env.REACT_APP_TMDB_KEY +
         "&language=en-US"
     )
@@ -31,7 +31,7 @@ export const getMovies = () => {
 
   export const getUpcomingMovies = () => {
     return fetch(
-      '/api/movies/upcoming')
+      `/api/movies/upcoming`)
       .then(res => res.json())
       .then(json => json.results);
   };
