@@ -37,8 +37,8 @@ const reducer = (state, action) => {
       return { movies: action.payload.movies, upcoming:[...state.upcoming], popular:[...state.popular], trending:[...state.trending], now_playing:[...state.now_playing]};
       case "load-upcoming":
         return { upcoming: action.payload.movies, movies: [...state.movies], popular:[...state.popular],  trending:[...state.trending], now_playing:[...state.now_playing]};
-   //   case "load-now-playing":
-     //     return { now_playing: action.payload.movies, upcoming:[...state.upcoming], movies:[...state.movies], popular:[...state.popular], trending:[...state.trending]};
+      case "load-now-playing":
+          return { now_playing: action.payload.movies, upcoming:[...state.upcoming], movies:[...state.movies], popular:[...state.popular], trending:[...state.trending]};
       case "load-trending":
           return {trending: action.payload.movies, upcoming:[...state.upcoming], movies:[...state.movies], popular:[...state.popular], now_playing:[...state.now_playing]} ;  
       case "load-popular":

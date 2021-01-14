@@ -60,7 +60,7 @@ export const getMovies = () => {
     return fetch(
       `/api/movies/now_playing`
     )
-      .then(res => res.json())
+    .then(res => res.json())
       .then(json => json.results);
   };
 
