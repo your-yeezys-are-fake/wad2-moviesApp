@@ -31,7 +31,7 @@ export const getMovies = () => {
 
   export const getUpcomingMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`)
+      `/api/movies/upcoming`)
       .then(res => res.json())
       .then(json => json.results);
   };
@@ -58,7 +58,7 @@ export const getMovies = () => {
 
    export const getNowPlayingMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `/api/movies/now_playing`
     )
       .then(res => res.json())
       .then(json => json.results);
@@ -66,18 +66,15 @@ export const getMovies = () => {
 
   export const getPopularMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      `/api/movies/popular`
     )
       .then(res => res.json())
       .then(json => json.results);
   };
 
   export const getMovieCredits = id => {
-    return fetch(
-      `/api/movies/${id}/credits`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
+    return fetch(`/api/movies/${id}/credits`)
+      .then(res => res.json());
   };
 
   export const login = (username, password) => {
