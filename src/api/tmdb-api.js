@@ -1,15 +1,18 @@
 export const getMovies = () => {
   return fetch(
-     '/api/movies'//,{headers: {
-       //'Authorization': window.localStorage.getItem('token')
-    //}
-  //}
+     '/api/movies',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
   ).then(res => res.json());
 };
   
   export const getMovie = id => {
     return fetch(
-      `/api/movies/${id}`
+      `/api/movies/${id}`,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
     ).then(res => res.json());
   };
 
@@ -18,27 +21,39 @@ export const getMovies = () => {
     return fetch(
       `/api/genres/` +
         process.env.REACT_APP_TMDB_KEY +
-        "&language=en-US"
+        "&language=en-US", {headers: {
+          'Authorization': window.localStorage.getItem('token')
+       }
+     }
     )
       .then(res => res.json())
       .then(json => json.genres);
   };
 
   export const getMovieReviews = id => {
-    return fetch(`/api/movies/${id}/reviews`)
+    return fetch(`/api/movies/${id}/reviews` ,{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ })
       .then(res => res.json());
   };
 
   export const getUpcomingMovies = () => {
     return fetch(
-      `/api/movies/upcoming`)
+      `/api/movies/upcoming` ,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   })
       .then(res => res.json())
       .then(json => json.results);
   };
 
   export const getTrendingMovies = id => {
     return fetch(
-      `/api/movies/trending`
+      `/api/movies/trending` ,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
     )
       .then(res => res.json())
       .then(json => json.results);
@@ -58,7 +73,10 @@ export const getMovies = () => {
 
    export const getNowPlayingMovies = () => {
     return fetch(
-      `/api/movies/now_playing`
+      `/api/movies/now_playing`,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
     )
     .then(res => res.json())
       .then(json => json.results);
@@ -66,14 +84,20 @@ export const getMovies = () => {
 
   export const getPopularMovies = () => {
     return fetch(
-      `/api/movies/popular`
+      `/api/movies/popular`,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
     )
       .then(res => res.json())
       .then(json => json.results);
   };
 
   export const getMovieCredits = id => {
-    return fetch(`/api/movies/${id}/credits`)
+    return fetch(`/api/movies/${id}/credits`,{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ })
       .then(res => res.json());
   };
 

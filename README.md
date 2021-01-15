@@ -1,68 +1,72 @@
-# Assignment 1 - ReactJS app.
+# Assignment 2 - Web API.
 
 Name: Georgia Swindley
 
 ## Features.
  
- + Feature 1 - Added ability to browse trending movies using "trending" selection in top menu
- + Feature 2 - Added ability to browse popular movies using "popular" selection in top menu
- + Feature 3 - Added ability to browse for movies now in theatres using "now playing" selection in top 
- menu
- + Feature 4 - Added ability to browse movie cast credits (throws inconsistent errors when interacted with)
- + Feature 5 - Attempted to add ability to browse for TV shows (not implemented in final version of app, but still in code)
+ + Feature 1 - Installation of Morgan and Helmet to provide logging and extra security to API.
+ + Feature 2 - Integration of viewing the cast and reviews for each individual movie into the API.
+ + Feature 3 - Addition of login and sign up pages in React App. 
+ + Feature 4 - Addition of protected routes which require a valid session token to view.
+ + Feature 5 - Integration of upcoming, trending, now playing, and popular movies into the API. 
 
-## API Data Model.
+## Installation Requirements
 
-..... List the additional TMDB endpoints used in your assignment, e.g.
++ Software 1 - NPM ("npm install" at terminal)
++ Software 2- Mongoose ("npm install mongoose")
 
-+ https://api.themoviedb.org/3/trending/movie/week - get trending movies this week 
-+ https://api.themoviedb.org/3/movie/now_playing - get movies now playing in theatres 
-+ https://api.themoviedb.org/3/movie/popular - get popular movies 
-+ https://api.themoviedb.org/3/tv/latest - get latest TV shows (in code only)
-+ https://api.themoviedb.org/3/tv/{id} - view TV show in detail by its ID (in code only)
-+ https://api.themoviedb.org/3/movie/{id}/credits - View cast credits for a movie 
+## API Configuration
 
-## App Design.
-
-### Component catalogue
-
-![][storycast]
->Storybook structure changed to reflect addition of cast. 
-
-### UI Design.
-
-![][trending]
->Shows currently trending movies from the past week. 
+```bat
+NODE_ENV=development
+PORT=8080
+HOST=
+mongoDB=YourMongoURL
+seedDb=true
+secret=YourJWTSecret
+REACT_APP_TMDB_KEY= yourTMDBKey
+```
 
 
-![][nowplaying]
->Shows a list of movies currently playing in theatres.
+## API Design
 
+|  |  GET | POST | PUT | DELETE
+| -- | -- | -- | -- | -- 
+| /api/movies |Gets a list of movies | N/A | N/A |
+| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
+| /api/movies/{movieid}/reviews | Get all reviews for movie | N/A | N/A | N/A 
+| /api/movies/{movieid}/credits | Get all cast credits      | N/A | N/A | N/A
+| /api/movies/upcoming  | Get upcoming Movies | N/A | N/A | | N/A | 
+| /api/movies/trending  | Get trending Movies | N/A | N/A | | N/A |   
+| /api/movies/nowplaying  | Get now playing Movies | N/A | N/A | | N/A |  
+| /api/movies/popular  | Get popular Movies | N/A | N/A | | N/A |  
+| ... | ... | ... | ... | ...
 
-![][popular]
->Shows a list of currently popular movies. In the API documentation, this has a similar function to latest (but is considered a separate entity by TMDB, just with usually similar views/results)
+## Security and Authentication
+Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
 
-![][moviescast]
->Intended to show a movie's cast by actor name and character
+## Integrating with React App
 
-## Routing.
+Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. For example: 
 
-+ /movies/popular (public) - displays currently popular movies.
-+ /movies/now_playing (public) - displays movies now playing in theatres.
-+ /trending/movies/week - displays movies trending in the past week.
-+ /tv/latest - displays latest TV shows (in code only)
-+ /tv/{id} - displays a TV show by its ID in more detail (in code only)
-+ /movie/{id}/credits - displays a movie's cast by actor name and character
+~~~Javascript
+export const getMovies = () => {
+  return fetch(
+     '/api/movies',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  )
+    .then(res => res.json())
+    .then(json => {return json.results;});
+};
 
-## Independent learning (If relevant).
+~~~
 
-+ Used TMDB API Documentation for project. 
+## Extra features
 
----------------------------------
+. . Briefly explain any non-standard features, functional or non-functional, developed for the app.  
 
-[model]: ./data.jpg
-[trending]: ./public/trending.png
-[nowplaying]: ./public/nowplaying.png
-[popular]: ./public/popular.png
-[moviescast]: ./public/moviescast.png
-[storycast]: ./public/storycast.png
+## Independent learning.
+
+. . State the non-standard aspects of React/Express/Node (or other related technologies) that you researched and applied in this assignment . .  
